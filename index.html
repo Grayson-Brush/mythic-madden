@@ -1,1 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmic Gridiron Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="app-header">
+            <p class="eyebrow">MYTHIC MATCHUP SIMULATOR</p>
+            <h1>🌌 Cosmic Gridiron</h1>
+            <p class="header-subtitle">Build your lineups. Simulate the showdown.</p>
+        </header>
 
+        <section class="matchup-card" aria-label="Game matchup">
+            <div class="matchup-team">
+                <span id="home-label" class="team-side-label">HOME</span>
+                <label class="team">
+                    <span class="visually-hidden">Choose the home team</span>
+                    <select id="team1-select" aria-label="Choose the home team"></select>
+                </label>
+                <output id="team1-score" class="score" aria-label="Home score">0</output>
+            </div>
+            <div class="vs" aria-hidden="true">VS</div>
+            <div id="away-matchup" class="matchup-team matchup-team-away">
+                <span class="team-side-label">AWAY</span>
+                <label class="team">
+                    <span class="visually-hidden">Choose the away team</span>
+                    <select id="team2-select" aria-label="Choose the away team"></select>
+                </label>
+                <output id="team2-score" class="score" aria-label="Away score">0</output>
+            </div>
+        </section>
+
+        <div class="game-actions">
+            <button id="sim-btn" class="primary-button">🏈 Simulate Full Game</button>
+            <button id="season-btn" class="primary-button">📅 Simulate 17-Game Season</button>
+            <button id="new-matchup-btn" class="secondary-button" hidden>New Matchup</button>
+            <button id="share-btn" class="secondary-button" hidden>📋 Copy Result</button>
+        </div>
+        <div class="dashboard-grid">
+            <div class="card">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">GAME SETUP</p>
+                        <h2>Team Lineups</h2>
+                    </div>
+                    <span class="subtle-label">Choose 11 per side</span>
+                </div>
+                <div class="team-lineups">
+                    <section id="home-lineup" class="team-lineup"></section>
+                    <section id="away-lineup" class="team-lineup"></section>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-heading">
+                    <div>
+                        <p class="eyebrow">PLAY-BY-PLAY</p>
+                        <h2>Game Recap</h2>
+                    </div>
+                    <span id="recap-count" class="subtle-label">Not started</span>
+                </div>
+                <div id="play-log" class="log-box" aria-live="polite">
+                    <p class="empty-state">Choose your lineups, then simulate the full game.</p>
+                </div>
+                <button id="recap-toggle" class="text-button" hidden>Show full recap</button>
+            </div>
+        </div>
+        <section id="box-score" class="box-score" hidden>
+            <div class="card-heading">
+                <div>
+                    <p class="eyebrow">FINAL STATISTICS</p>
+                    <h2>Box Score</h2>
+                </div>
+            </div>
+            <div id="box-score-tabs" class="box-score-tabs" role="tablist" aria-label="Box score categories"></div>
+            <div id="box-score-content"></div>
+        </section>
+        <footer class="site-footer">
+            Unofficial fan project, made for fun and not for profit. Not affiliated with or endorsed by the owners of any characters, names or franchises referenced. All trademarks belong to their respective owners.
+        </footer>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
